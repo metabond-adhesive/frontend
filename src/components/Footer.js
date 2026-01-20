@@ -20,9 +20,9 @@ function Footer() {
         <div className="footer-section">
           <h4>Follow Us</h4>
           <div className="social-links">
-            <a href="#" aria-label="LinkedIn">LinkedIn</a>
-            <a href="#" aria-label="Twitter">Twitter</a>
-            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="https://linkedin.com" aria-label="LinkedIn">LinkedIn</a>
+            <a href="https://twitter.com" aria-label="Twitter">Twitter</a>
+            <a href="https://facebook.com" aria-label="Facebook">Facebook</a>
           </div>
         </div>
       </div>
