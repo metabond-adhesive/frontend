@@ -1,7 +1,35 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Body.css';
 
 function Body() {
+  // Product list (10 items)
+  const products = [
+    { id: 1, name: 'Metabond S1', tag: 'Structural epoxy', icon: '🧪' },
+    { id: 2, name: 'Metabond S2', tag: 'High-temp adhesive', icon: '🔥' },
+    { id: 3, name: 'Metabond S3', tag: 'Fast cure adhesive', icon: '⚡' },
+    { id: 4, name: 'Metabond S4', tag: 'Automotive grade', icon: '🚗' },
+    { id: 5, name: 'Metabond S5', tag: 'Construction sealant', icon: '🏗️' },
+    { id: 6, name: 'Metabond S6', tag: 'Chemical resistant', icon: '🧴' },
+    { id: 7, name: 'Metabond S7', tag: 'Electronics grade', icon: '🔌' },
+    { id: 8, name: 'Metabond S8', tag: 'Marine adhesive', icon: '⚓' },
+    { id: 9, name: 'Metabond S9', tag: 'Flexible bonding', icon: '🧵' },
+    { id: 10, name: 'Metabond S10', tag: 'Specialty formulation', icon: '🔬' },
+  ];
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const itemRefs = useRef([]);
+  const rowRef = useRef(null);
+
+  useEffect(() => {
+    const el = itemRefs.current[activeIndex];
+    if (el && typeof el.scrollIntoView === 'function') {
+      el.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+  }, [activeIndex]);
+
+  const prev = () => setActiveIndex((i) => Math.max(0, i - 1));
+  const next = () => setActiveIndex((i) => Math.min(products.length - 1, i + 1));
+
   return (
     <main className="body">
       <section className="hero">
@@ -12,30 +40,48 @@ function Body() {
         </div>
       </section>
 
-      <section className="features" id="product-range">
+      {/* Product Range - replaced with horizontal scroll selector */}
+      <section className="features product-range-section" id="product-range" aria-label="Product range">
         <div className="container">
           <h2>Our Product Range</h2>
-          <div className="feature-grid">
-            <div className="feature-card">
-              <div className="icon">🔬</div>
-              <h3>Industrial Adhesives</h3>
-              <p>High-performance bonding solutions for manufacturing and assembly</p>
+
+          <div className="product-range-wrapper">
+            <button
+              className="scroll-arrow left"
+              onClick={prev}
+              aria-label="Previous product"
+              disabled={activeIndex === 0}
+            >
+              ‹
+            </button>
+
+            <div className="product-row" ref={rowRef} role="list">
+              {products.map((p, idx) => (
+                <div
+                  key={p.id}
+                  role="listitem"
+                  ref={(el) => (itemRefs.current[idx] = el)}
+                  className={`product-item ${idx === activeIndex ? 'active' : ''}`}
+                  onClick={() => setActiveIndex(idx)}
+                  tabIndex={0}
+                >
+                  <div className="product-media" aria-hidden="true">{p.icon}</div>
+                  <div className="product-info">
+                    <h3 className="product-name">{p.name}</h3>
+                    <p className="product-tag">{p.tag}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="feature-card">
-              <div className="icon">🏗️</div>
-              <h3>Construction Solutions</h3>
-              <p>Specialized adhesives for building and infrastructure projects</p>
-            </div>
-            <div className="feature-card">
-              <div className="icon">⚙️</div>
-              <h3>Automotive Grade</h3>
-              <p>Precision adhesives engineered for the automotive industry</p>
-            </div>
-            <div className="feature-card">
-              <div className="icon">💎</div>
-              <h3>Specialty Chemicals</h3>
-              <p>Custom formulations for unique bonding requirements</p>
-            </div>
+
+            <button
+              className="scroll-arrow right"
+              onClick={next}
+              aria-label="Next product"
+              disabled={activeIndex === products.length - 1}
+            >
+              ›
+            </button>
           </div>
         </div>
       </section>
