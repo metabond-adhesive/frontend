@@ -114,11 +114,17 @@ export default function Contact() {
 
   return (
     <main className="contact-page">
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="contact-hero">
-        <div className="contact-hero-content">
-          <h1>Get In Touch</h1>
-          <p>We'd love to hear from you. Whether you have questions about our products, need technical support, or want to explore partnership opportunities.</p>
+        <div className="hero-overlay"></div>
+        <div className="hero-content">
+          <h1 className="hero-title">
+            Get in Touch
+            <span className="hero-subtitle">We're here to help builders and industry leaders</span>
+          </h1>
+          <p className="hero-description">
+            Reach out for product support, technical advice, or to request a quote.
+          </p>
         </div>
       </section>
 
@@ -365,8 +371,21 @@ export default function Contact() {
       </section>
 
       {/* Back to Home Button */}
-      <div style={{ display: 'flex', justifyContent: 'center', padding: '3rem 0' }}>
-        <button className="btn btn-primary" onClick={() => navigate('/')}>Back to Home</button>
+      <div className="contact-bottom">
+        <button
+          className="btn btn-primary"
+          onClick={() => {
+            navigate('/', { replace: false });
+            // robust scroll-to-top after navigation
+            setTimeout(() => {
+              window.scrollTo(0, 0);
+              document.documentElement.scrollTop = 0;
+              document.body.scrollTop = 0;
+            }, 0);
+          }}
+        >
+          Back to Home
+        </button>
       </div>
     </main>
   );
