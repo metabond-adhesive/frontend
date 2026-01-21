@@ -467,3 +467,22 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* New: make the Contact page "Back to Home" button align & space like About Us */
+.contact-bottom {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 0; /* matches About Us spacing */
+  background: transparent;
+}
+
+.contact-bottom .btn {
+  min-width: 200px;
+}
+
+/* Slightly reduced padding on small screens */
+@media (max-width: 480px) {
+  .contact-bottom {
+    padding: 2rem 0;
+  }
+}

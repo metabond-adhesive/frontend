@@ -7,10 +7,10 @@ function Header() {
   return (
     <header className="header">
       <div className="header-container">
-        <div className="logo">
+        <Link to="/" className="logo" aria-label="Metabond home">
           <img src={logo} alt="Metabond" className="logo-image" />
           <p className="tagline">Advanced Adhesive Solutions</p>
-        </div>
+        </Link>
         <nav className="nav-menu">
           <ul>
             <li><Link to="/#product-range">Product Range</Link></li>

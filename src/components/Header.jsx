@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Header.css';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,13 +17,13 @@ const Header = () => {
     <>
       <header className="header">
         <div className="header-container">
-          <div className="logo">
-            <img src="/path/to/logo.png" alt="Logo" className="logo-image" />
+          <Link to="/" className="logo" aria-label="MetaBond home">
+            <img src="/path/to/logo.png" alt="MetaBond" className="logo-image" />
             <div>
               <h1>MetaBond</h1>
               <p className="tagline">Your tagline here</p>
             </div>
-          </div>
+          </Link>
 
           {/* Hamburger button - visible on mobile */}
           <button 
