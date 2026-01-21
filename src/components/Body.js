@@ -30,6 +30,16 @@ function Body() {
   const prev = () => setActiveIndex((i) => Math.max(0, i - 1));
   const next = () => setActiveIndex((i) => Math.min(products.length - 1, i + 1));
 
+  const [isSmall, setIsSmall] = useState(
+    typeof window !== 'undefined' ? window.innerWidth <= 600 : false
+  );
+
+  useEffect(() => {
+    const handleResize = () => setIsSmall(window.innerWidth <= 600);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <main className="body">
       <section className="hero">
@@ -37,7 +47,11 @@ function Body() {
         <div className="hero-content">
           <h1>Leading the Future of <span>Adhesive Technology</span></h1>
           <p>Metabond delivers cutting-edge adhesive solutions for industries worldwide</p>
-          <button className="cta-btn">Explore Our Products</button>
+
+          <div className="hero-cta-group">
+            <button className="cta-btn">Explore Our Products</button>
+            <button className="cta2-btn">Download Tech Brochures</button>
+          </div>
         </div>
       </section>
 
