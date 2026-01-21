@@ -4,16 +4,16 @@ import './Body.css';
 function Body() {
   // Product list (10 items)
   const products = [
-    { id: 1, name: 'Metabond S1', tag: 'Structural epoxy', icon: '🧪' },
-    { id: 2, name: 'Metabond S2', tag: 'High-temp adhesive', icon: '🔥' },
-    { id: 3, name: 'Metabond S3', tag: 'Fast cure adhesive', icon: '⚡' },
-    { id: 4, name: 'Metabond S4', tag: 'Automotive grade', icon: '🚗' },
-    { id: 5, name: 'Metabond S5', tag: 'Construction sealant', icon: '🏗️' },
-    { id: 6, name: 'Metabond S6', tag: 'Chemical resistant', icon: '🧴' },
-    { id: 7, name: 'Metabond S7', tag: 'Electronics grade', icon: '🔌' },
-    { id: 8, name: 'Metabond S8', tag: 'Marine adhesive', icon: '⚓' },
-    { id: 9, name: 'Metabond S9', tag: 'Flexible bonding', icon: '🧵' },
-    { id: 10, name: 'Metabond S10', tag: 'Specialty formulation', icon: '🔬' },
+    { id: 1, name: 'Metabond S1', tag: 'Structural epoxy', icon: '🧪', desc: 'High-strength bonding for critical applications' },
+    { id: 2, name: 'Metabond S2', tag: 'High-temp adhesive', icon: '🔥', desc: 'Withstands extreme temperatures up to 250°C' },
+    { id: 3, name: 'Metabond S3', tag: 'Fast cure adhesive', icon: '⚡', desc: '15-minute set time for rapid assembly' },
+    { id: 4, name: 'Metabond S4', tag: 'Automotive grade', icon: '🚗', desc: 'OEM-approved for vehicle manufacturing' },
+    { id: 5, name: 'Metabond S5', tag: 'Construction sealant', icon: '🏗️', desc: 'Weather-resistant for building exteriors' },
+    { id: 6, name: 'Metabond S6', tag: 'Chemical resistant', icon: '🧴', desc: 'Protects against acids and solvents' },
+    { id: 7, name: 'Metabond S7', tag: 'Electronics grade', icon: '🔌', desc: 'ESD-safe for sensitive components' },
+    { id: 8, name: 'Metabond S8', tag: 'Marine adhesive', icon: '⚓', desc: 'Salt water and UV resistant' },
+    { id: 9, name: 'Metabond S9', tag: 'Flexible bonding', icon: '🧵', desc: 'Maintains elasticity under stress' },
+    { id: 10, name: 'Metabond S10', tag: 'Specialty formulation', icon: '🔬', desc: 'Custom chemistry for unique needs' },
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -33,6 +33,7 @@ function Body() {
   return (
     <main className="body">
       <section className="hero">
+        <div className="hero-overlay"></div>
         <div className="hero-content">
           <h1>Leading the Future of <span>Adhesive Technology</span></h1>
           <p>Metabond delivers cutting-edge adhesive solutions for industries worldwide</p>
@@ -40,10 +41,10 @@ function Body() {
         </div>
       </section>
 
-      {/* Product Range - replaced with horizontal scroll selector */}
       <section className="features product-range-section" id="product-range" aria-label="Product range">
-        <div className="container">
+        <div className="full-width-container">
           <h2>Our Product Range</h2>
+          <p className="section-subtitle">Innovative adhesives engineered for every application</p>
 
           <div className="product-range-wrapper">
             <button
@@ -69,6 +70,7 @@ function Body() {
                   <div className="product-info">
                     <h3 className="product-name">{p.name}</h3>
                     <p className="product-tag">{p.tag}</p>
+                    <p className="product-desc">{p.desc}</p>
                   </div>
                 </div>
               ))}
@@ -87,6 +89,7 @@ function Body() {
       </section>
 
       <section className="about" id="about">
+        <div className="about-background"></div>
         <div className="container">
           <h2>About Metabond</h2>
           <div className="about-content">
@@ -117,6 +120,7 @@ function Body() {
       </section>
 
       <section className="contact" id="contact">
+        <div className="contact-background"></div>
         <div className="container">
           <h2>Contact Us</h2>
           <p className="contact-intro">
