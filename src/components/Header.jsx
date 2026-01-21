@@ -43,7 +43,6 @@ const Header = () => {
               <li><a href="#about">About</a></li>
               <li><a href="#services">Services</a></li>
               <li><a href="#contact">Contact</a></li>
-              <li><button className="login-btn">Login</button></li>
             </ul>
           </nav>
         </div>
@@ -63,7 +62,6 @@ const Header = () => {
             <li><a href="#about" onClick={closeMenu}>About</a></li>
             <li><a href="#services" onClick={closeMenu}>Services</a></li>
             <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
-            <li><button className="login-btn" onClick={closeMenu}>Login</button></li>
           </ul>
         </nav>
       </div>

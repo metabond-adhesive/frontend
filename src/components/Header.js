@@ -15,7 +15,6 @@ function Header() {
             <li><a href="#product-range">Product Range</a></li>
             <li><a href="#contact">Contact Us</a></li>
             <li><a href="#about">About Us</a></li>
-            <li><button className="login-btn">Login/Sign Up</button></li>
           </ul>
         </nav>
       </div>
