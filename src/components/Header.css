@@ -119,36 +119,15 @@ html, body {
   width: 100%;
 }
 
-.login-btn {
-  background: var(--color-primary);
-  color: var(--text-on-primary);
-  border: none;
-  padding: 0.625rem 1.5rem;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: var(--shadow-sm);
-}
-
-.login-btn:hover {
-  background: var(--color-primary-dark);
-  box-shadow: var(--shadow-orange);
-  transform: translateY(-1px);
-}
-
 /* Touch targets and focus states */
-.nav-menu a,
-.login-btn {
+.nav-menu a {
   min-height: 40px;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.nav-menu a:focus,
-.login-btn:focus {
+.nav-menu a:focus {
   outline: 3px solid rgba(0,0,0,0.08);
   outline-offset: 2px;
   border-radius: 6px;
@@ -360,14 +339,6 @@ body.menu-open {
 
   .side-panel .nav-menu a::after {
     display: none;
-  }
-
-  .side-panel .login-btn {
-    width: 100%;
-    padding: 0.875rem 1rem;
-    margin-top: 1rem;
-    text-align: center;
-    justify-content: center;
   }
 
   /* Close button in side panel */
