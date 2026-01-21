@@ -84,6 +84,26 @@
   box-shadow: var(--shadow-orange);
 }
 
+.cta2-btn {
+  background: var(--color-secondary);
+  color: var(--text-on-primary);
+  border: none;
+  padding: 1.125rem 3rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: var(--shadow-md);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.cta2-btn:hover {
+  background: var(--color-secondary-dark);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-orange);
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -445,6 +465,30 @@
   margin: 0;
   color: var(--text-secondary);
   font-weight: 500;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ensure stacked buttons are centered and have sensible width on small screens */
+@media (max-width: 768px) {
+  .hero-cta-group {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center; /* center horizontally */
+    justify-content: center;
+  }
+
+  .hero-cta-group .cta-btn,
+  .hero-cta-group .cta2-btn {
+    width: 100%;
+    max-width: 360px;
+  }
 }
 
 @media (max-width: 768px) {
