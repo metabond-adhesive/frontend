@@ -6,7 +6,7 @@ function Body() {
     <main className="body">
       <section className="hero">
         <div className="hero-content">
-          <h1>Leading the Future of Adhesive Technology</h1>
+          <h1>Leading the Future of <span>Adhesive Technology</span></h1>
           <p>Metabond delivers cutting-edge adhesive solutions for industries worldwide</p>
           <button className="cta-btn">Explore Our Products</button>
         </div>
