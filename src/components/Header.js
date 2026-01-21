@@ -1,12 +1,13 @@
 import React from 'react';
 import './Header.css';
+import logo from '../assets/logo.png';
 
 function Header() {
   return (
     <header className="header">
       <div className="header-container">
         <div className="logo">
-          <h1>Metabond</h1>
+          <img src={logo} alt="Metabond" className="logo-image" />
           <p className="tagline">Advanced Adhesive Solutions</p>
         </div>
         <nav className="nav-menu">
