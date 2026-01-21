@@ -14,6 +14,11 @@
   gap: 2rem;
 }
 
+.footer-section {
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+
 .footer-section h3 {
   font-size: 1.5rem;
   margin: 0 0 0.75rem 0;
@@ -61,6 +66,7 @@
   margin: 0;
 }
 
+/* Generic list item spacing used for both Quick Links and Follow Us */
 .footer-section ul li {
   margin-bottom: 0.5rem;
 }
@@ -70,29 +76,13 @@
   text-decoration: none;
   transition: all 0.2s ease;
   font-size: 0.9375rem;
+  display: inline-block;
+  padding: 0.125rem 0; /* modest vertical padding to control visual gap */
 }
 
 .footer-section ul li a:hover {
   color: var(--color-primary);
   padding-left: 4px;
-}
-
-.social-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.social-links a {
-  color: rgba(255, 255, 255, 0.75);
-  text-decoration: none;
-  transition: all 0.2s ease;
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
-}
-
-.social-links a:hover {
-  color: var(--color-primary);
-  background: rgba(235, 124, 37, 0.1);
 }
 
 .footer-bottom {
@@ -111,11 +101,33 @@
 
 @media (max-width: 768px) {
   .footer-container {
-    grid-template-columns: 1fr;
+    /* force single column and ensure row flow so items stack in DOM order */
+    display: grid;
+    grid-template-columns: 1fr !important;
+    grid-auto-flow: row;
     text-align: center;
+    gap: 1.25rem;
   }
 
-  .social-links {
-    justify-content: center;
+  /* make each section full width and add spacing */
+  .footer-section {
+    width: 100%;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Generic list centering for both Quick Links and Follow Us */
+  .footer-section ul {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-section ul li a {
+    display: inline-block;
+    padding: 0.125rem 0;
   }
 }
