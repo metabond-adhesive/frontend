@@ -32,3 +32,26 @@ out/
 # VSCode
 .vscode/
 *.code-workspace
+
+# environment files
+.env
+
+# build tool caches
+.vite/
+.cache/
+.parcel-cache/
+
+# editor/temp files
+*.swp
+*~
+.idea/**/workspace.xml
+
+# eslint/stylelint cache
+.eslintcache
+
+# storybook
+.out/
+.storybook/
+
+# OS generated files
+Thumbs.db
