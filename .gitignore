@@ -4,7 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
-package-lock.json
+
+# TypeScript
+*.tsbuildinfo
+tsconfig.tsbuildinfo
 
 # testing
 /coverage
@@ -59,3 +62,6 @@ Thumbs.db
 
 # Local deploy logs
 logs/
+
+# Cleanup scripts
+cleanup.sh

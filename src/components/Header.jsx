@@ -1,73 +1,72 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Header.css';
+import logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = () => setIsMenuOpen((s) => !s);
+  const closeMenu = () => setIsMenuOpen(false);
 
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+  useEffect(() => {
+    // lock body scroll when menu is open
+    document.body.classList.toggle('menu-open', isMenuOpen);
+    return () => document.body.classList.remove('menu-open');
+  }, [isMenuOpen]);
 
   return (
     <>
       <header className="header">
         <div className="header-container">
-          <Link to="/" className="logo" aria-label="MetaBond home">
-            <img src="/path/to/logo.png" alt="MetaBond" className="logo-image" />
-            <div>
-              <h1>MetaBond</h1>
-              <p className="tagline">Your tagline here</p>
-            </div>
+          <Link to="/" className="logo" aria-label="Metabond home" onClick={closeMenu}>
+            <img src={logo} alt="Metabond" className="logo-image" />
+            <p className="tagline">Advanced Adhesive Solutions</p>
           </Link>
 
-          {/* Hamburger button - visible on mobile */}
-          <button 
+          {/* desktop nav */}
+          <nav className="nav-menu">
+            <ul>
+              <li><Link to="/#product-range">Product Range</Link></li>
+              <li><Link to="/contact">Contact Us</Link></li>
+              <li><Link to="/about">About Us</Link></li>
+            </ul>
+          </nav>
+
+          {/* hamburger for mobile */}
+          <button
             className={`hamburger ${isMenuOpen ? 'open' : ''}`}
             onClick={toggleMenu}
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
           >
             <span className="bar"></span>
             <span className="bar"></span>
             <span className="bar"></span>
           </button>
-
-          {/* Desktop navigation - hidden on mobile */}
-          <nav className="nav-menu">
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </nav>
         </div>
       </header>
 
-      {/* Mobile side panel */}
-      <div 
+      {/* backdrop */}
+      <div
         className={`side-panel-backdrop ${isMenuOpen ? 'open' : ''}`}
         onClick={closeMenu}
         aria-hidden={!isMenuOpen}
       ></div>
 
-      <div className={`side-panel ${isMenuOpen ? 'open' : ''}`}>
+      {/* side panel */}
+      <aside id="mobile-navigation" className={`side-panel ${isMenuOpen ? 'open' : ''}`} aria-hidden={!isMenuOpen}>
         <nav className="nav-menu">
           <ul>
-            <li><a href="#home" onClick={closeMenu}>Home</a></li>
-            <li><a href="#about" onClick={closeMenu}>About</a></li>
-            <li><a href="#services" onClick={closeMenu}>Services</a></li>
-            <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
+            <li><Link to="/#product-range" onClick={closeMenu}>Product Range</Link></li>
+            <li><Link to="/contact" onClick={closeMenu}>Contact Us</Link></li>
+            <li><Link to="/about" onClick={closeMenu}>About Us</Link></li>
           </ul>
         </nav>
-      </div>
+      </aside>
     </>
   );
-};
+}
 
 export default Header;
