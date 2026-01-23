@@ -5,6 +5,11 @@
 /.pnp
 .pnp.js
 
+# lock files
+package-lock.json
+/package-lock.json
+yarn.lock
+
 # TypeScript
 *.tsbuildinfo
 tsconfig.tsbuildinfo
