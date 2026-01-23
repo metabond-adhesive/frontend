@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: metabond-frontend:latest
+    ports:
+      - "6060:80"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
