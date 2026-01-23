@@ -5,9 +5,9 @@
 /.pnp
 .pnp.js
 
-# ensure package-lock is ignored (explicit pattern)
- /package-lock.json
- package-lock.json
+# TypeScript
+*.tsbuildinfo
+tsconfig.tsbuildinfo
 
 # testing
 /coverage
@@ -62,3 +62,6 @@ Thumbs.db
 
 # Local deploy logs
 logs/
+
+# Cleanup scripts
+cleanup.sh
