@@ -5,6 +5,31 @@
   border-top: 4px solid var(--color-primary);
 }
 
+/* Ensure footer logo and tagline match header sizing and layout */
+.footer .logo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+.footer .logo-image {
+  height: auto;
+  width: clamp(100px, 20vw, 180px);
+  display: block;
+}
+
+.footer .tagline {
+  margin: 0;
+  font-size: clamp(0.7rem, 1.8vw, 0.8125rem);
+  font-weight: 400;
+  color: var(--text-secondary);
+  letter-spacing: 0.3px;
+}
+
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -129,5 +154,21 @@
   .footer-section ul li a {
     display: inline-block;
     padding: 0.125rem 0;
+  }
+
+  /* Mobile: align footer logo with header mobile sizing */
+  .footer .logo {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .footer .logo-image {
+    height: 40px;
+  }
+
+  .footer .tagline {
+    display: none;
   }
 }

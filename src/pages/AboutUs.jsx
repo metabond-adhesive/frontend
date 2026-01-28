@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AboutUs.css';
+import Breadcrumb from '../components/Breadcrumb';
 
 const AboutUs = () => {
   // initialize router navigation
@@ -49,7 +50,13 @@ const AboutUs = () => {
   ];
 
   return (
-    <div className="about-page">
+    <div className="about-page">      {/* Breadcrumb */}
+      <div className="breadcrumb-container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '1rem 2rem 0' }}>
+        <Breadcrumb items={[
+          { label: 'Home', path: '/' },
+          { label: 'About Us', path: '/about' }
+        ]} />
+      </div>
       {/* Hero Section */}
       <section className="about-hero">
         <div className="hero-overlay"></div>
@@ -198,19 +205,6 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
-
-      {/* Back to Home */}
-      <div className="about-bottom" style={{ display: 'flex', justifyContent: 'center', padding: '3rem 0' }}>
-        <button 
-          className="btn btn-primary" 
-          onClick={() => {
-            navigate('/', { replace: false });
-            window.scrollTo(0, 0);
-          }}
-        >
-          Back to Home
-        </button>
-      </div>
     </div>
   );
 };

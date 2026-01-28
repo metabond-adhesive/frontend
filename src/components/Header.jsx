@@ -27,7 +27,8 @@ function Header() {
           {/* desktop nav */}
           <nav className="nav-menu">
             <ul>
-              <li><Link to="/#product-range">Product Range</Link></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/products">Product Range</Link></li>
               <li><Link to="/contact">Contact Us</Link></li>
               <li><Link to="/about">About Us</Link></li>
             </ul>
@@ -59,7 +60,8 @@ function Header() {
       <aside id="mobile-navigation" className={`side-panel ${isMenuOpen ? 'open' : ''}`} aria-hidden={!isMenuOpen}>
         <nav className="nav-menu">
           <ul>
-            <li><Link to="/#product-range" onClick={closeMenu}>Product Range</Link></li>
+            <li><Link to="/" onClick={closeMenu}>Home</Link></li>
+            <li><Link to="/products" onClick={closeMenu}>Product Range</Link></li>
             <li><Link to="/contact" onClick={closeMenu}>Contact Us</Link></li>
             <li><Link to="/about" onClick={closeMenu}>About Us</Link></li>
           </ul>

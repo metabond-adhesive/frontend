@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Contact.css';
+import Breadcrumb from '../components/Breadcrumb';
 
 export default function Contact() {
   const navigate = useNavigate();
@@ -114,6 +115,14 @@ export default function Contact() {
 
   return (
     <main className="contact-page">
+      {/* Breadcrumb */}
+      <div className="breadcrumb-container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '1rem 2rem 0' }}>
+        <Breadcrumb items={[
+          { label: 'Home', path: '/' },
+          { label: 'Contact Us', path: '/contact' }
+        ]} />
+      </div>
+
       {/* Hero */}
       <section className="contact-hero">
         <div className="hero-overlay"></div>
@@ -370,23 +379,6 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Back to Home Button */}
-      <div className="contact-bottom">
-        <button
-          className="btn btn-primary"
-          onClick={() => {
-            navigate('/', { replace: false });
-            // robust scroll-to-top after navigation
-            setTimeout(() => {
-              window.scrollTo(0, 0);
-              document.documentElement.scrollTop = 0;
-              document.body.scrollTop = 0;
-            }, 0);
-          }}
-        >
-          Back to Home
-        </button>
-      </div>
     </main>
   );
 }

@@ -1,20 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getAllProducts } from '../data/productsData';
 import './Body.css';
 
 function Body() {
-  // Product list (10 items)
-  const products = [
-    { id: 1, name: 'Metabond S1', tag: 'Structural epoxy', icon: '🧪', desc: 'High-strength bonding for critical applications' },
-    { id: 2, name: 'Metabond S2', tag: 'High-temp adhesive', icon: '🔥', desc: 'Withstands extreme temperatures up to 250°C' },
-    { id: 3, name: 'Metabond S3', tag: 'Fast cure adhesive', icon: '⚡', desc: '15-minute set time for rapid assembly' },
-    { id: 4, name: 'Metabond S4', tag: 'Automotive grade', icon: '🚗', desc: 'OEM-approved for vehicle manufacturing' },
-    { id: 5, name: 'Metabond S5', tag: 'Construction sealant', icon: '🏗️', desc: 'Weather-resistant for building exteriors' },
-    { id: 6, name: 'Metabond S6', tag: 'Chemical resistant', icon: '🧴', desc: 'Protects against acids and solvents' },
-    { id: 7, name: 'Metabond S7', tag: 'Electronics grade', icon: '🔌', desc: 'ESD-safe for sensitive components' },
-    { id: 8, name: 'Metabond S8', tag: 'Marine adhesive', icon: '⚓', desc: 'Salt water and UV resistant' },
-    { id: 9, name: 'Metabond S9', tag: 'Flexible bonding', icon: '🧵', desc: 'Maintains elasticity under stress' },
-    { id: 10, name: 'Metabond S10', tag: 'Specialty formulation', icon: '🔬', desc: 'Custom chemistry for unique needs' },
-  ];
+  const navigate = useNavigate();
+  
+  // Get products from centralized data
+  const products = getAllProducts();
 
   const [activeIndex, setActiveIndex] = useState(0);
   const itemRefs = useRef([]);
@@ -29,6 +22,11 @@ function Body() {
 
   const prev = () => setActiveIndex((i) => Math.max(0, i - 1));
   const next = () => setActiveIndex((i) => Math.min(products.length - 1, i + 1));
+
+  const handleProductClick = (productId, event) => {
+    event.stopPropagation();
+    navigate(`/product/${productId}`);
+  };
 
   const [isSmall, setIsSmall] = useState(
     typeof window !== 'undefined' ? window.innerWidth <= 600 : false
@@ -49,7 +47,7 @@ function Body() {
           <p>Metabond delivers cutting-edge adhesive solutions for industries worldwide</p>
 
           <div className="hero-cta-group">
-            <button className="cta-btn">Explore Our Products</button>
+            <button className="cta-btn" onClick={() => navigate('/products')}>Explore Our Products</button>
             <button className="cta2-btn">Download Tech Brochures</button>
           </div>
         </div>
@@ -77,8 +75,9 @@ function Body() {
                   role="listitem"
                   ref={(el) => (itemRefs.current[idx] = el)}
                   className={`product-item ${idx === activeIndex ? 'active' : ''}`}
-                  onClick={() => setActiveIndex(idx)}
+                  onClick={(e) => handleProductClick(p.id, e)}
                   tabIndex={0}
+                  style={{ cursor: 'pointer' }}
                 >
                   <div className="product-media" aria-hidden="true">{p.icon}</div>
                   <div className="product-info">
