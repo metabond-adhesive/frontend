@@ -47,7 +47,7 @@ function Body() {
           <p>Metabond delivers cutting-edge adhesive solutions for industries worldwide</p>
 
           <div className="hero-cta-group">
-            <button className="cta-btn">Explore Our Products</button>
+            <button className="cta-btn" onClick={() => navigate('/products')}>Explore Our Products</button>
             <button className="cta2-btn">Download Tech Brochures</button>
           </div>
         </div>
