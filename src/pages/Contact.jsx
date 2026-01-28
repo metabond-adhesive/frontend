@@ -374,6 +374,7 @@ export default function Contact() {
       <div className="contact-bottom">
         <button
           className="btn btn-primary"
+          style={{ minWidth: '200px', width: 'auto' }}
           onClick={() => {
             navigate('/', { replace: false });
             // robust scroll-to-top after navigation

@@ -203,6 +203,7 @@ const AboutUs = () => {
       <div className="about-bottom" style={{ display: 'flex', justifyContent: 'center', padding: '3rem 0' }}>
         <button 
           className="btn btn-primary" 
+          style={{ minWidth: '200px', width: 'auto' }}
           onClick={() => {
             navigate('/', { replace: false });
             window.scrollTo(0, 0);
