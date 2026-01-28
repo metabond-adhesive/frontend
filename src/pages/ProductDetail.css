@@ -7,39 +7,7 @@
   padding: 20px;
 }
 
-/* Breadcrumb */
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 30px;
-  font-size: 14px;
-  color: #666;
-}
-
-.breadcrumb button {
-  background: none;
-  border: none;
-  color: #0066cc;
-  cursor: pointer;
-  padding: 0;
-  font-size: 14px;
-  transition: color 0.2s;
-}
-
-.breadcrumb button:hover {
-  color: #004499;
-  text-decoration: underline;
-}
-
-.breadcrumb .separator {
-  color: #999;
-}
-
-.breadcrumb .current {
-  color: #333;
-  font-weight: 500;
-}
+/* Breadcrumb styles are now in Breadcrumb.css */
 
 /* Product Hero Section */
 .product-hero {

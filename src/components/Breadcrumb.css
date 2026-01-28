@@ -1,0 +1,61 @@
+.breadcrumb {
+  padding: 1rem 0;
+  background: transparent;
+}
+
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Override Bootstrap breadcrumb separator */
+.breadcrumb-item + .breadcrumb-item::before {
+  content: none !important;
+  display: none !important;
+}
+
+.breadcrumb-link {
+  color: var(--text-secondary, #666);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  padding: 0.25rem 0;
+}
+
+.breadcrumb-link:hover {
+  color: var(--color-primary, #EB7C25);
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  color: var(--text-muted, #999);
+  user-select: none;
+  font-size: 1rem;
+}
+
+.breadcrumb-current {
+  color: var(--text-primary, #333);
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .breadcrumb {
+    padding: 0.75rem 0;
+  }
+
+  .breadcrumb-item {
+    font-size: 0.8125rem;
+  }
+}

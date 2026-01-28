@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getProductById, getRelatedProducts } from '../data/productsData';
 import './ProductDetail.css';
+import Breadcrumb from '../components/Breadcrumb';
 
 function ProductDetail() {
   const { productId } = useParams();
@@ -150,13 +151,11 @@ function ProductDetail() {
   return (
     <div className="product-detail-page">
       {/* Breadcrumb Navigation */}
-      <div className="breadcrumb">
-        <button onClick={() => navigate('/')}>Home</button>
-        <span className="separator">›</span>
-        <button onClick={() => navigate('/#product-range')}>Products</button>
-        <span className="separator">›</span>
-        <span className="current">{product.name}</span>
-      </div>
+      <Breadcrumb items={[
+        { label: 'Home', path: '/' },
+        { label: 'Products', path: '/products' },
+        { label: product.name, path: `/product/${product.id}` }
+      ]} />
 
       {/* Product Hero Section */}
       <div className="product-hero">
