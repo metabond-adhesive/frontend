@@ -20,10 +20,10 @@ ENV NODE_ENV=${APP_ENV}
 COPY --from=build /app/dist /usr/share/nginx/html
 # custom nginx config (optional override)
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
+EXPOSE 6060
 
 # basic healthcheck (adjust path if your app uses different endpoint)
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
-  CMD wget -qO- --timeout=2 http://localhost:80 || exit 1
+  CMD wget -qO- --timeout=2 http://localhost:6060 || exit 1
 
 CMD ["nginx", "-g", "daemon off;"]
