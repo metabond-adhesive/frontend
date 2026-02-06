@@ -116,7 +116,7 @@ export default function Contact() {
   return (
     <main className="contact-page">
       {/* Breadcrumb */}
-      <div className="breadcrumb-container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '1rem 2rem 0' }}>
+      <div className="breadcrumb-container" style={{ maxWidth: '90%', margin: '0 auto', padding: 'clamp(0.75rem, 2vw, 1.5rem) clamp(1rem, 4vw, 4rem) 0' }}>
         <Breadcrumb items={[
           { label: 'Home', path: '/' },
           { label: 'Contact Us', path: '/contact' }

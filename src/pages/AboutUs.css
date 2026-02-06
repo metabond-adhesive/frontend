@@ -89,14 +89,14 @@
 
 /* Section Container */
 .section-container {
-  max-width: 1200px;
+  max-width: 90%;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 clamp(1rem, 4vw, 4rem);
 }
 
 /* Introduction Section */
 .intro-section {
-  padding: 6rem 0;
+  padding: clamp(3rem, 8vw, 6rem) 0;
   background: white;
   position: relative;
 }
@@ -145,7 +145,7 @@
 
 /* Vision & Mission Section */
 .vision-mission-section {
-  padding: 6rem 0;
+  padding: clamp(3rem, 8vw, 6rem) 0;
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   position: relative;
 }

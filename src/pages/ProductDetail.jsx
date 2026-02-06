@@ -151,11 +151,13 @@ function ProductDetail() {
   return (
     <div className="product-detail-page">
       {/* Breadcrumb Navigation */}
-      <Breadcrumb items={[
-        { label: 'Home', path: '/' },
-        { label: 'Products', path: '/products' },
-        { label: product.name, path: `/product/${product.id}` }
-      ]} />
+      <div className="breadcrumb-container" style={{ maxWidth: '90%', margin: '0 auto', padding: 'clamp(0.75rem, 2vw, 1.5rem) clamp(1rem, 4vw, 4rem) 0' }}>
+        <Breadcrumb items={[
+          { label: 'Home', path: '/' },
+          { label: 'Products', path: '/products' },
+          { label: product.name, path: `/product/${product.id}` }
+        ]} />
+      </div>
 
       {/* Product Hero Section */}
       <div className="product-hero">
