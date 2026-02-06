@@ -2,9 +2,8 @@
 
 .product-detail-page {
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 20px;
+  min-height: 100vh;
+  background: var(--color-bg, #F5F6F7);
 }
 
 /* Breadcrumb styles are now in Breadcrumb.css */
@@ -13,9 +12,12 @@
 .product-hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  margin-bottom: 60px;
-  padding: 30px 0;
+  gap: clamp(2rem, 5vw, 4rem);
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 4vw, 4rem);
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Product Gallery */
@@ -64,7 +66,7 @@
 }
 
 .thumbnail.active {
-  border-color: #0066cc;
+  border-color: var(--color-primary);
   opacity: 1;
 }
 
@@ -84,7 +86,7 @@
 .product-category {
   display: inline-block;
   padding: 6px 16px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: white;
   border-radius: 20px;
   font-size: 14px;
@@ -112,7 +114,7 @@
   flex-direction: column;
   gap: 15px;
   padding: 25px;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(135deg, #fff5ed 0%, #ffe5d4 100%);
   border-radius: 12px;
   margin: 20px 0;
 }
@@ -167,30 +169,34 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: white;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 12px rgba(235, 124, 37, 0.4);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+  box-shadow: 0 6px 20px rgba(235, 124, 37, 0.5);
 }
 
 .btn-secondary {
   background: white;
-  color: #667eea;
-  border: 2px solid #667eea;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
 }
 
 .btn-secondary:hover {
-  background: #667eea;
+  background: var(--color-primary);
   color: white;
 }
 
 /* Tabs Section */
 .product-tabs {
-  margin: 60px 0;
+  margin: clamp(2rem, 5vw, 4rem) 0;
+  padding: 0 clamp(1rem, 4vw, 4rem);
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .tabs-header {
@@ -219,8 +225,8 @@
 }
 
 .tab-btn.active {
-  color: #667eea;
-  border-bottom-color: #667eea;
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
 }
 
 .tabs-content {
@@ -265,7 +271,7 @@
   padding: 16px 20px;
   background: #f8f9fa;
   border-radius: 8px;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid var(--color-primary);
   transition: all 0.3s;
 }
 
@@ -309,8 +315,8 @@
 }
 
 .application-card:hover {
-  border-color: #667eea;
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 20px rgba(235, 124, 37, 0.15);
   transform: translateY(-4px);
 }
 
@@ -402,14 +408,14 @@
 }
 
 .package-item:hover {
-  border-color: #667eea;
+  border-color: var(--color-primary);
   transform: translateX(5px);
 }
 
 .package-icon {
   width: 28px;
   height: 28px;
-  color: #667eea;
+  color: var(--color-primary);
   flex-shrink: 0;
 }
 
@@ -453,7 +459,7 @@
 
 .step-header {
   padding: 20px 30px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: white;
 }
 
@@ -559,8 +565,8 @@
 }
 
 .download-card:hover {
-  border-color: #667eea;
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 20px rgba(235, 124, 37, 0.15);
   transform: translateY(-4px);
 }
 
@@ -591,7 +597,7 @@
   align-items: center;
   gap: 8px;
   padding: 10px 20px;
-  background: #667eea;
+  background: var(--color-primary);
   color: white;
   border: none;
   border-radius: 6px;
@@ -602,7 +608,7 @@
 }
 
 .download-btn:hover {
-  background: #5568d3;
+  background: var(--color-primary-dark);
   transform: scale(1.05);
 }
 
@@ -613,9 +619,12 @@
 
 /* Related Products */
 .related-products {
-  margin-top: 80px;
-  padding-top: 60px;
+  margin-top: clamp(3rem, 6vw, 5rem);
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 4rem) clamp(2rem, 5vw, 4rem);
   border-top: 2px solid #e5e5e5;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .related-products h3 {
@@ -685,15 +694,15 @@
   border-radius: 6px;
   font-size: 14px;
   font-weight: 600;
-  color: #667eea;
+  color: var(--color-primary);
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .view-btn:hover {
-  background: #667eea;
+  background: var(--color-primary);
   color: white;
-  border-color: #667eea;
+  border-color: var(--color-primary);
 }
 
 /* Responsive Design */

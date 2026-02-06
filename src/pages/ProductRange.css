@@ -64,9 +64,9 @@
 
 /* Main Container */
 .products-container {
-  max-width: 1400px;
+  max-width: 90%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: clamp(1rem, 3vw, 3rem) clamp(1rem, 4vw, 4rem);
 }
 
 .breadcrumb-wrapper {
@@ -75,7 +75,7 @@
 
 /* Category Filter */
 .category-filter {
-  margin-bottom: 3rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
 .category-filter h2 {
@@ -135,7 +135,7 @@
 
 /* Products Grid Section */
 .products-grid-section {
-  margin-bottom: 4rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
 
 .section-header {

@@ -125,19 +125,39 @@
 }
 
 @media (max-width: 768px) {
+  .footer {
+    padding: 3rem 0 1.5rem 0;
+  }
+
   .footer-container {
     /* force single column and ensure row flow so items stack in DOM order */
     display: grid;
     grid-template-columns: 1fr !important;
     grid-auto-flow: row;
     text-align: center;
-    gap: 1.25rem;
+    gap: 2rem;
+    padding: 0 1.5rem;
   }
 
   /* make each section full width and add spacing */
   .footer-section {
     width: 100%;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Center align h4 headings and center the underline */
+  .footer-section h4 {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Center the orange underline on mobile */
+  .footer-section h4::after {
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   /* Generic list centering for both Quick Links and Follow Us */
@@ -145,6 +165,7 @@
     text-align: center;
     margin: 0 auto;
     display: block;
+    width: 100%;
   }
 
   .footer-section ul li {
@@ -162,6 +183,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    width: 100%;
   }
 
   .footer .logo-image {
@@ -170,5 +192,10 @@
 
   .footer .tagline {
     display: none;
+  }
+
+  .footer-bottom {
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    margin-top: 1.5rem;
   }
 }
