@@ -20,7 +20,7 @@ function Header() {
       <header className="header">
         <div className="header-container">
           <Link to="/" className="logo" aria-label="Metabond home" onClick={closeMenu}>
-            <img src={logo} alt="Metabond" className="logo-image" />
+            <img src={logo} alt="Metabond" className="logo-image"/>
             <p className="tagline">Advanced Adhesive Solutions</p>
           </Link>
 

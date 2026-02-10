@@ -55,6 +55,7 @@ html, body {
   height: 50px;
   width: auto;
   display: block;
+  object-fit: contain;
 }
 
 .logo h1 {
