@@ -489,15 +489,14 @@
 /* ensure stacked buttons are centered and have sensible width on small screens */
 @media (max-width: 768px) {
   .hero-cta-group {
-    flex-direction: column;
+    grid-auto-flow: row;
+    grid-auto-columns: unset;
     gap: 0.75rem;
-    align-items: center; /* center horizontally */
-    justify-content: center;
+    justify-items: center;
   }
 
   .hero-cta-group .cta-btn,
   .hero-cta-group .cta2-btn {
-    width: 100%;
     max-width: 360px;
   }
 }
@@ -526,27 +525,56 @@
     font-size: 2rem;
   }
 
-  .product-item {
-    min-width: 240px;
-    max-width: 280px;
+  .product-range-wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0;
+  }
+
+  .product-range-wrapper .scroll-arrow {
+    order: 1;
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+  }
+
+  .product-range-wrapper .product-row {
+    order: 0;
+    width: 100%;
+  }
+
+  .product-row {
     padding: 1.5rem 1rem;
+    gap: 1rem;
+  }
+
+  .product-item {
+    min-width: 200px;
+    max-width: 240px;
+    padding: 1.25rem 1rem;
+  }
+
+  .product-item:not(.active) {
+    transform: scale(0.9);
+  }
+
+  .product-item.active {
+    transform: scale(1.05);
   }
 
   .product-media {
-    width: 72px;
-    height: 72px;
-    font-size: 2.5rem;
+    width: 64px;
+    height: 64px;
+    font-size: 2.25rem;
   }
 
-  .scroll-arrow {
-    width: 48px;
-    height: 48px;
-    font-size: 1.75rem;
+  .product-name {
+    font-size: 1.05rem;
   }
 
-  .product-range-wrapper {
-    gap: 1rem;
-    padding: 0 0.5rem;
+  .product-tag {
+    font-size: 0.75rem;
   }
 }
 
