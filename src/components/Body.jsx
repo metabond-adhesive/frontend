@@ -13,15 +13,36 @@ function Body() {
   const itemRefs = useRef([]);
   const rowRef = useRef(null);
 
-  useEffect(() => {
-    const el = itemRefs.current[activeIndex];
-    if (el && typeof el.scrollIntoView === 'function') {
-      el.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-    }
-  }, [activeIndex]);
+const centerActiveItem = (index) => {
+  const row = rowRef.current;
+  const item = itemRefs.current[index];
+  if (!row || !item) return;
 
-  const prev = () => setActiveIndex((i) => Math.max(0, i - 1));
-  const next = () => setActiveIndex((i) => Math.min(products.length - 1, i + 1));
+  const rowWidth = row.offsetWidth;
+  const itemWidth = item.offsetWidth;
+
+  const scrollLeft =
+    item.offsetLeft - (rowWidth / 2 - itemWidth / 2);
+
+  row.scrollTo({
+    left: scrollLeft,
+    behavior: 'smooth',
+  });
+};
+
+useEffect(() => {
+  centerActiveItem(activeIndex);
+}, [activeIndex]);
+
+
+const prev = () => {
+  setActiveIndex((i) => (i - 1 + products.length) % products.length);
+};
+
+const next = () => {
+  setActiveIndex((i) => (i + 1) % products.length);
+};
+
 
   const handleProductClick = (productId, event) => {
     event.stopPropagation();
@@ -63,7 +84,6 @@ function Body() {
               className="scroll-arrow left"
               onClick={prev}
               aria-label="Previous product"
-              disabled={activeIndex === 0}
             >
               ‹
             </button>
@@ -93,7 +113,6 @@ function Body() {
               className="scroll-arrow right"
               onClick={next}
               aria-label="Next product"
-              disabled={activeIndex === products.length - 1}
             >
               ›
             </button>

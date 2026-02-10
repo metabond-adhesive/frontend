@@ -468,13 +468,24 @@
 }
 
 .hero-cta-group {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: center;
+    display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 1rem;
+}
+
+
+.hero-cta-group button {
   width: 100%;
 }
 
+.product-row {
+  scroll-snap-type: x mandatory;
+}
+
+.product-item {
+  scroll-snap-align: center;
+}
 /* ensure stacked buttons are centered and have sensible width on small screens */
 @media (max-width: 768px) {
   .hero-cta-group {
@@ -538,3 +549,4 @@
     padding: 0 0.5rem;
   }
 }
+
