@@ -7,6 +7,13 @@
   padding: 20px;
 }
 
+.breadcrumb-container {
+    width: 100%;
+    max-width: 1200px;   /* choose ONE width */
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
 /* Breadcrumb styles are now in Breadcrumb.css */
 
 /* Product Hero Section */
