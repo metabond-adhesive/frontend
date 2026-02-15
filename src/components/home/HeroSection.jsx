@@ -14,7 +14,7 @@ function HeroSection() {
 
                 <div className="hero-cta-group">
                     <button className="cta-btn" onClick={() => navigate('/products')}>Explore Our Products</button>
-                    <button className="cta2-btn">Download Tech Brochures</button>
+                    <button className="cta2-btn" onClick={() => navigate('/brochures')}>Download Tech Brochures</button>
                 </div>
             </div>
         </section>
