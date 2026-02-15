@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import BrochureHero from '../components/brochures/BrochureHero';
 import FilterBar from '../components/brochures/FilterBar';
 import BrochureCard from '../components/brochures/BrochureCard';
+import Breadcrumb from '../components/Breadcrumb';
 import { brochuresData } from '../data/brochuresData';
 import '../components/brochures/Brochures.css';
 
@@ -42,6 +43,13 @@ const Brochures = () => {
 
     return (
         <div className="brochures-page fade-in">
+            {/* Breadcrumb */}
+            <div className="breadcrumb-container" style={{ maxWidth: '90%', margin: '0 auto', padding: 'clamp(0.75rem, 2vw, 1.5rem) clamp(1rem, 4vw, 4rem) 0' }}>
+                <Breadcrumb items={[
+                    { label: 'Home', path: '/' },
+                    { label: 'Technical Brochures', path: '/brochures' }
+                ]} />
+            </div>
 
             <BrochureHero />
 
