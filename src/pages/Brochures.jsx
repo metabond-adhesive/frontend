@@ -95,9 +95,22 @@ const Brochures = () => {
                         >
                             Reset Filters
                         </button>
+                        <div className="no-results-contact">
+                            <p>Can't find what you're looking for?</p>
+                            <a href="/contact" className="link-contact">Contact Technical Support</a>
+                        </div>
                     </div>
                 )}
             </div>
+
+            {/* Bottom CTA Section */}
+            <section className="brochures-cta">
+                <div className="cta-content">
+                    <h2>Need specific technical advice?</h2>
+                    <p>Our engineering team can help you select the right adhesive solution for your application.</p>
+                    <a href="/contact" className="btn-cta">Speak to an Engineer</a>
+                </div>
+            </section>
 
         </div>
     );
