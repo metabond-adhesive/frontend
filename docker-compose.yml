@@ -1,12 +1,17 @@
-version: '3.8'
 services:
-  frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: metabond-frontend:latest
-    ports:
-      - "6060:80"
+  metabond-frontend:
+    image: amjangde96/metabond-frontend:latest
+    container_name: metabond-frontend
     restart: unless-stopped
+    ports:
+      - "6060:6060"
+    volumes:
+      - ${CONFIG_DIR}/app_data/metabond:/app/data
     environment:
       - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "--timeout=2", "http://localhost:6060"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
