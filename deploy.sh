@@ -262,8 +262,7 @@ deploy_remote() {
     echo "Running new container..."
     if ! docker run -d \
       --name "\${CONTAINER_NAME}" \
-      --network "container:lazytainer" \
-      --label "lazytainer.group=metabond" \
+      -p 6060:6060 \
       --restart unless-stopped \
       "\${IMAGE_NAME}:\${IMAGE_TAG}"; then
       echo "ERROR: Failed to run container"
